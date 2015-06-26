@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron . --debug 5858",
+    "debug": "electron . "
   },
   "author": "melvin",
   "license": "MIT",
