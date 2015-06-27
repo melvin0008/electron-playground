@@ -3,27 +3,34 @@
 <head>
 <title>ACE in Action</title>
 <style type="text/css" media="screen">
-    #editor { 
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-		width:50%;
-		font-size:12px;
-		border-right: double; 
-    }
+  
+  	#app{
+  		width: 800px;
+  		height: 600px;
+  		float: left;
+  	}
+
+  	#editor{
+  		border-right: double;
+  	}
 </style>
 </head>
 <body>
-
-<div id="editor"></div>
-    
+<div id="app">
+	<div id="editor" style="height:600px; width:50%; float:left;" ></div>
+	<div id="parsedhtml"></div>
+</div>
 <script src="scripts/libs/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+<script src=""type="text/javascript"></script>
+
 <script>
+	var markdown = require( "markdown" ).markdown;
     var editor = ace.edit("editor");
     editor.setTheme("ace/theme/clouds");
     editor.getSession().setMode("ace/mode/markdown");
+    editor.getSession().on('change', function(e) {
+		document.getElementById('parsedhtml').innerHTML+=markdown.toHTML(e.data.text)	    
+	});
 </script>
-</body>
+
 </html>

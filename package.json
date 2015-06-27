@@ -10,6 +10,7 @@
   "author": "melvin",
   "license": "MIT",
   "devDependencies": {
-    "electron-prebuilt": "^0.28.3"
+    "electron-prebuilt": "^0.28.3",
+    "markdown": "^0.5.0"
   }
 }
